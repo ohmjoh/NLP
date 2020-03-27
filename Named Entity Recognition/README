@@ -1,0 +1,16 @@
+20180611 NER Test
+
+eng.testb (included in the folder) was tested with Stanford NER in the commandline.
+Commandline command is below:
+
+java -mx600m -cp stanford-ner.jar:lib/* edu.stanford.nlp.ie.crf.CRFClassifier -loadClassifier classifiers/english.conll.4class.distsim.crf.ser.gz -tokenizerFactory edu.stanford.nlp.process.WhitespaceTokenizer -tokenizerOptions "tokenizeNLs=true" -outputFormat tsv 2 -textFile testb.txt > testb_predict.tsv
+
+eng.testb was also tested with Illinois NET in the commandline.
+
+The output of SNER is converted to CoNLL 2003 style with convert2conll.sh which is also included in the folder.
+
+Assignment3.py contains the codes for converting the INET output to CoNLL 2003 style.
+
+Proessed output files were tested with conlleval.
+
+Error anlaysis can be done by running Assignemnt3.py line by line.

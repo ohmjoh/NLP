@@ -1,8 +1,6 @@
  
 INTRODUCTION
 ------------
-This is REDAME for COMP5046 Assignment2 code submission.
-Assignment2_mioh7370.py contains code for news article classification task for Assignment2. 
 
 The code contains one baseline(experiment0) and seven experiments:
 experiment0
