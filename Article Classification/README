@@ -1,0 +1,367 @@
+ 
+INTRODUCTION
+------------
+This is REDAME for COMP5046 Assignment2 code submission.
+Assignment2_mioh7370.py contains code for news article classification task for Assignment2. 
+
+The code contains one baseline(experiment0) and seven experiments:
+experiment0
+experiment1
+experiment2
+experiment3_1
+experiment3_2
+experiment4
+experiment5_1
+experiment5_2
+
+Each function prints out the perfomance metrics and other information.
+They also plot prediction-recall scatter plots. 
+
+REQUIRED LIBRARIES
+------------
+* nltk
+* pandas
+* numpy
+* re
+* sklearn.utils  shuffle
+* sklearn.model_selection KFold
+* matplotlib.pyplot
+* nltk  word_tokenize
+* sklearn.feature_extraction.text CountVectorizer
+* sklearn.feature_extraction.text TfidfVectorizer
+* sklearn.linear_model LogisticRegression
+* statistics mean
+* statistics  stdev
+* sklearn.metrics  accuracy_score
+* sklearn.metrics  precision_score
+* sklearn.metrics  recall_score
+* sklearn.metrics  precision_recall_fscore_support
+* sklearn.metrics  classification_report, confusion_matrix
+* nltk.corpus  stopwords
+* nltk.stem.porter  PorterStemmer
+* nltk.corpus  wordnet 
+
+
+HOW TO RUN
+------------
+You can run the file from top to bottom.
+You have to uncomment the lines to run the baseline and experiments functions.
+
+
+EXAMPLE OUTPUT
+------------
+exp0_errors = experiment0(X,y)
+30 most frequent features:
+[(',', 63849), ('the', 61857), ('.', 58407), ('to', 33822), ('of', 29964), ('and', 28968), ('a', 28390), ('in', 23709), ("''", 18714), ("'s", 14039), ('``', 13082), ('that', 12740), ('is', 11668), ('for', 11613), ('on', 11184), ('was', 9665), ('The', 8745), ('with', 8724), ('it', 8382), ('I', 7917), (':', 6850), ('as', 6803), ('said', 6755), ('he', 6568), ('at', 6461), ('have', 6142), ('be', 6115), ('his', 5532), ('are', 5480), ('from', 5357)]
+Accuray:
+0.6710526315789473
+Precision, recall, f-score:
+                        precision    recall  f1-score   support
+
+              Business       0.71      0.57      0.63        21
+         Entertainment       0.78      0.80      0.79        40
+                 Error       0.00      0.00      0.00         4
+                Health       0.67      0.33      0.44         6
+                 Other       0.00      0.00      0.00         1
+              Politics       0.65      0.68      0.67        38
+Science and Technology       0.43      0.23      0.30        13
+               Society       0.59      0.69      0.64        65
+                Sports       0.86      0.94      0.90        32
+                   War       0.43      0.38      0.40         8
+
+           avg / total       0.66      0.67      0.66       228
+
+Business: market, business, its, company, sale, retail, online, Amazon, Dotcom, eBay
+Entertainment: show, actor, film, actress, Bieber, singer, And, Justin, music, Salman
+Error: Cuomo, She, Log, settings, Please, update, Labor, Qantas, Knight, one
+Health: Ebola, cancer, Pathways, health, study, Health, hospital, help, doctors, eating
+Other: Pope, Philadelphia, degrees, what, Kay, Francis, Budi, Dreamliner, so, visit
+Politics: Obama, minister, election, Minister, new, state, President, government, Modi, Congress
+Science and Technology: technology, virtual, Facebook, what, NASA, used, climate, internet, tech, science
+Society: police, arrested, tax, day, Green, Dawson, when, man, near, Council
+Sports: game, team, football, League, Games, since, season, players, NFL, player
+War: troops, Syria, forces, Islamic, attack, Iraq, war, us, killed, law
+30 most frequent features:
+[(',', 62929), ('the', 61623), ('.', 57663), ('to', 33541), ('of', 29778), ('and', 28877), ('a', 27726), ('in', 23500), ("'s", 13776), ('``', 12851), ('that', 12587), ("''", 12366), ('for', 11539), ('is', 11424), ('on', 11271), ('was', 9643), ('The', 8685), ('with', 8674), ('it', 8267), ('I', 7479), ('as', 6802), ('said', 6747), ('at', 6520), ('he', 6493), ('have', 6063), ('be', 6035), (':', 5722), ('his', 5534), ('are', 5432), ('from', 5362)]
+Accuray:
+0.6798245614035088
+Precision, recall, f-score:
+                        precision    recall  f1-score   support
+
+              Business       0.65      0.52      0.58        21
+         Entertainment       0.73      0.68      0.71        44
+                 Error       0.00      0.00      0.00         3
+                Health       0.20      0.20      0.20         5
+                 Other       0.00      0.00      0.00         3
+              Politics       0.63      0.81      0.71        27
+Science and Technology       0.56      0.45      0.50        11
+               Society       0.63      0.74      0.68        69
+                Sports       0.97      0.85      0.90        39
+                   War       0.50      0.33      0.40         6
+
+           avg / total       0.68      0.68      0.67       228
+
+Business: its, market, business, sale, company, retail, industry, online, Amazon, employees
+Entertainment: show, film, actor, actress, band, 've, Bieber, singer, And, music
+Error: Cuomo, years, She, 'Ninja, Turtles, weirdest, Log, moments, settings, 30
+Health: Ebola, cancer, surgery, drug, Pathways, Health, medical, eating, Hollands, research
+Other: Pope, Philadelphia, what, Kay, Budi, Francis, Dreamliner, law, Apicius, degrees
+Politics: election, Obama, minister, Minister, Modi, new, President, Congress, government, campaign
+Science and Technology: virtual, science, technology, cave, reality, scientists, internet, climate, computer, project
+Society: police, day, crowdfunding, Police, Can, offers, arrested, weather, Green, solve
+Sports: game, team, football, NFL, games, players, League, Games, since, player
+War: troops, attack, forces, Islamic, Syria, Paris, Iraq, British, Walker, Al
+/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+/anaconda3/lib/python3.6/site-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+30 most frequent features:
+[(',', 63202), ('the', 62247), ('.', 57817), ('to', 33734), ('of', 29878), ('and', 28825), ('a', 28151), ('in', 23781), ("''", 18282), ("'s", 13802), ('``', 12698), ('that', 12694), ('is', 11593), ('for', 11593), ('on', 11432), ('was', 9582), ('The', 8862), ('with', 8639), ('it', 8242), ('I', 7458), (':', 6809), ('as', 6792), ('said', 6690), ('at', 6501), ('he', 6429), ('be', 6154), ('have', 6060), ('his', 5524), ('are', 5495), ('from', 5399)]
+Accuray:
+0.631578947368421
+Precision, recall, f-score:
+                        precision    recall  f1-score   support
+
+              Business       0.52      0.55      0.54        20
+         Entertainment       0.62      0.72      0.67        39
+                 Error       0.00      0.00      0.00         5
+                Health       0.67      0.33      0.44         6
+                 Other       0.50      0.17      0.25         6
+              Politics       0.72      0.65      0.68        40
+Science and Technology       0.64      0.56      0.60        16
+               Society       0.56      0.70      0.62        64
+                Sports       0.90      0.86      0.88        22
+                   War       0.60      0.30      0.40        10
+
+           avg / total       0.62      0.63      0.62       228
+
+Business: market, its, business, retail, sale, Amazon, company, companies, industry, Dotcom
+Entertainment: show, film, actor, Bieber, singer, actress, Justin, night, Kallis, star
+Error: Cuomo, Knight, your, Log, settings, update, Please, Oregon, Photo, Qantas
+Health: Ebola, surgery, drug, Pathways, Health, eating, health, help, cancer, study
+Other: what, city, Dreamliner, Francis, Kay, Budi, Gorringe, Apicius, law, visit
+Politics: Obama, election, minister, new, Modi, government, state, President, party, governor
+Science and Technology: virtual, technology, science, internet, Apple, Facebook, Microsoft, climate, scientists, what
+Society: police, Police, people, day, near, plan, weather, Can, crowdfunding, called
+Sports: team, game, football, League, race, Games, players, games, Phua, Cup
+War: troops, Islamic, Syria, attack, forces, killed, law, two, military, article
+30 most frequent features:
+[(',', 63686), ('the', 62262), ('.', 58314), ('to', 33629), ('of', 29999), ('and', 29135), ('a', 28230), ('in', 23858), ("''", 18610), ("'s", 13898), ('``', 12970), ('that', 12671), ('for', 11630), ('is', 11581), ('on', 11268), ('was', 9672), ('The', 8838), ('with', 8631), ('it', 8322), ('I', 7580), ('said', 6779), ('as', 6776), (':', 6750), ('at', 6567), ('he', 6361), ('have', 6127), ('be', 6127), ('his', 5475), ('are', 5471), ('from', 5429)]
+Accuray:
+0.6535087719298246
+Precision, recall, f-score:
+                        precision    recall  f1-score   support
+
+              Business       0.70      0.61      0.65        23
+         Entertainment       0.69      0.75      0.72        36
+                 Error       0.00      0.00      0.00         1
+                Health       0.60      0.43      0.50         7
+                 Other       0.00      0.00      0.00         5
+              Politics       0.64      0.74      0.69        31
+Science and Technology       0.50      0.29      0.37        17
+               Society       0.58      0.73      0.64        66
+                Sports       0.86      0.76      0.81        33
+                   War       0.80      0.44      0.57         9
+
+           avg / total       0.65      0.65      0.64       228
+
+Business: its, market, business, sale, online, employees, Dotcom, company, companies, eBay
+Entertainment: show, film, actor, singer, Bieber, actress, music, And, Salman, Justin
+Error: Cuomo, She, Log, settings, years, Turtles, 'Ninja, weirdest, Please, update
+Health: Ebola, cancer, surgery, Pathways, eating, drug, hospital, help, doctors, risk
+Other: Pope, Philadelphia, what, degrees, Francis, law, Kay, Dreamliner, Floyd, Gorringe
+Politics: minister, Obama, election, Minister, government, President, new, Modi, Act, state
+Science and Technology: virtual, technology, scientists, science, cave, reality, Facebook, NASA, Earth, tech
+Society: police, day, Can, crowdfunding, when, Police, Council, solve, flight, Erdogan
+Sports: team, game, players, League, NFL, race, games, player, since, Games
+War: troops, Islamic, forces, Paris, Iraq, attack, Walker, British, Syria, law
+30 most frequent features:
+[(',', 62869), ('the', 61461), ('.', 57459), ('to', 33113), ('of', 29635), ('and', 28595), ('a', 27902), ('in', 23359), ("''", 18472), ("'s", 13679), ('``', 12807), ('that', 12388), ('for', 11478), ('is', 11318), ('on', 11224), ('was', 9584), ('The', 8736), ('with', 8605), ('it', 8165), ('I', 7347), ('as', 6751), (':', 6700), ('said', 6673), ('at', 6510), ('he', 6431), ('have', 5991), ('be', 5968), ('his', 5446), ('are', 5328), ('from', 5312)]
+Accuray:
+0.6929824561403509
+Precision, recall, f-score:
+                        precision    recall  f1-score   support
+
+              Business       0.73      0.70      0.71        23
+         Entertainment       0.75      0.75      0.75        32
+                 Error       0.00      0.00      0.00         1
+                Health       1.00      0.31      0.47        13
+                 Other       0.00      0.00      0.00         6
+              Politics       0.82      0.77      0.80        43
+Science and Technology       0.45      0.45      0.45        11
+               Society       0.62      0.81      0.70        64
+                Sports       0.82      0.85      0.84        27
+                   War       0.17      0.12      0.14         8
+
+           avg / total       0.69      0.69      0.68       228
+
+Business: market, business, company, sale, industry, its, Amazon, retail, prices, Dotcom
+Entertainment: show, film, actor, actress, singer, Bieber, music, Justin, ?, Salman
+Error: Cuomo, She, Log, settings, update, Please, Photo, years, your, Knight
+Health: Ebola, cancer, surgery, help, outbreak, do, health, hospital, study, Hollands
+Other: Pope, Philadelphia, what, so, Dreamliner, Francis, degrees, Kay, Budi, city
+Politics: Obama, election, minister, Minister, President, government, Modi, new, state, Act
+Science and Technology: technology, science, what, scientists, used, internet, climate, NASA, Earth, such
+Society: police, Police, Council, day, tax, murder, offers, when, Green, based
+Sports: game, team, players, NFL, football, race, Games, player, League, good
+War: troops, attack, Islamic, Walker, Paris, forces, Iraq, Syria, law, Ukrainian
+30 most frequent features:
+[(',', 63612), ('the', 62122), ('.', 58208), ('to', 33668), ('of', 29969), ('and', 29015), ('a', 28264), ('in', 23712), ("''", 18489), ("'s", 13863), ('``', 12871), ('that', 12635), ('for', 11571), ('is', 11537), ('on', 11305), ('was', 9666), ('The', 8759), ('with', 8616), ('it', 8329), ('I', 7587), ('as', 6838), (':', 6717), ('said', 6717), ('at', 6560), ('he', 6503), ('be', 6124), ('have', 6050), ('his', 5577), ('are', 5437), ('from', 5387)]
+Accuray:
+0.6929824561403509
+Precision, recall, f-score:
+                        precision    recall  f1-score   support
+
+              Business       0.77      0.62      0.69        16
+         Entertainment       0.70      0.93      0.80        43
+                 Error       0.00      0.00      0.00         3
+                Health       0.33      0.40      0.36         5
+                 Other       0.00      0.00      0.00         6
+              Politics       0.64      0.64      0.64        33
+Science and Technology       0.60      0.46      0.52        13
+               Society       0.65      0.70      0.68        73
+                Sports       0.96      0.89      0.92        27
+                   War       0.67      0.44      0.53         9
+
+           avg / total       0.67      0.69      0.68       228
+
+Business: market, its, business, company, retail, sale, eBay, Dotcom, Amazon, prices
+Entertainment: show, film, actor, actress, Bieber, And, Justin, music, singer, night
+Error: Cuomo, She, years, Log, Photo, settings, Turtles, 'Ninja, weirdest, 30
+Health: Ebola, cancer, surgery, study, Health, doctors, eating, Pathways, help, years
+Other: Pope, Philadelphia, Budi, Dreamliner, so, Kay, Francis, law, Gorringe, degrees
+Politics: minister, Obama, election, government, Modi, President, Minister, new, president, Act
+Science and Technology: virtual, technology, climate, cave, science, Facebook, scientists, than, reality, NASA
+Society: police, when, Can, crowdfunding, arrested, Police, solve, weather, day, plan
+Sports: game, team, football, NFL, player, Cup, Games, since, games, League
+War: troops, Syria, Islamic, forces, Iraq, Walker, Paris, British, us, war
+30 most frequent features:
+[(',', 63358), ('the', 62013), ('.', 57920), ('to', 33770), ('of', 29771), ('and', 28807), ('a', 27948), ('in', 23638), ("''", 18484), ("'s", 13860), ('``', 12840), ('that', 12690), ('is', 11621), ('for', 11578), ('on', 11432), ('was', 9479), ('The', 8754), ('with', 8715), ('it', 8262), ('I', 7373), (':', 6800), ('said', 6793), ('as', 6751), ('he', 6507), ('at', 6485), ('be', 6161), ('have', 6104), ('his', 5483), ('are', 5474), ('has', 5382)]
+Accuray:
+0.6578947368421053
+Precision, recall, f-score:
+                        precision    recall  f1-score   support
+
+              Business       0.60      0.43      0.50        21
+         Entertainment       0.63      0.75      0.68        36
+                 Error       0.00      0.00      0.00         4
+                Health       0.60      0.30      0.40        10
+                 Other       0.50      0.33      0.40         3
+              Politics       0.73      0.69      0.71        32
+Science and Technology       0.62      0.42      0.50        12
+               Society       0.63      0.77      0.69        81
+                Sports       0.84      0.81      0.82        26
+                   War       0.00      0.00      0.00         3
+
+           avg / total       0.64      0.66      0.64       228
+
+Business: its, market, business, sale, Amazon, industry, growth, company, street, eBay
+Entertainment: show, actor, film, actress, Bieber, singer, Tom, Justin, Salman, 've
+Error: years, She, Log, settings, Turtles, 'Ninja, weirdest, Please, update, moments
+Health: Ebola, cancer, Pathways, drug, hospital, eating, Health, health, treatment, outbreak
+Other: Pope, what, Philadelphia, degrees, so, Dreamliner, Budi, Francis, law, Gorringe
+Politics: Obama, minister, election, President, Minister, government, new, Modi, party, campaign
+Science and Technology: virtual, technology, what, cave, Facebook, reality, science, internet, scientists, Earth
+Society: police, Police, Can, crowdfunding, day, plan, weather, solve, case, offers
+Sports: game, team, football, Cup, League, players, NFL, Games, race, games
+War: troops, Syria, Islamic, forces, attack, Iraq, Walker, Paris, British, killed
+30 most frequent features:
+[(',', 62669), ('the', 61629), ('.', 57578), ('to', 33383), ('of', 29556), ('and', 28888), ('a', 27957), ('in', 23590), ("''", 18466), ("'s", 13646), ('``', 12800), ('that', 12399), ('for', 11510), ('is', 11389), ('on', 11343), ('was', 9568), ('The', 8793), ('with', 8637), ('it', 8057), ('I', 7430), ('as', 6771), ('said', 6738), (':', 6724), ('at', 6491), ('he', 6343), ('have', 6055), ('be', 5968), ('his', 5512), ('are', 5386), ('from', 5308)]
+Accuray:
+0.6447368421052632
+Precision, recall, f-score:
+                        precision    recall  f1-score   support
+
+              Business       0.53      0.53      0.53        19
+         Entertainment       0.67      0.74      0.70        43
+                 Error       0.00      0.00      0.00         2
+                Health       0.67      0.25      0.36         8
+                 Other       0.00      0.00      0.00         8
+              Politics       0.67      0.58      0.62        38
+Science and Technology       0.67      0.67      0.67        12
+               Society       0.56      0.72      0.63        68
+                Sports       0.92      0.85      0.88        26
+                   War       1.00      0.50      0.67         4
+
+           avg / total       0.63      0.64      0.63       228
+
+Business: its, market, sale, business, industry, retail, company, prices, $, Amazon
+Entertainment: show, actor, film, actress, Bieber, Salman, Hollywood, And, she, band
+Error: Cuomo, She, years, Turtles, 'Ninja, weirdest, Log, settings, Please, moments
+Health: Ebola, study, cancer, Pathways, health, food, eating, drug, Health, surgery
+Other: your, Pope, Budi, name, degrees, Gorringe, Kay, Sydney, Dreamliner, Apicius
+Politics: election, minister, Obama, Minister, government, Modi, President, new, campaign, financial
+Science and Technology: virtual, technology, cave, scientists, Facebook, reality, NASA, internet, what, Microsoft
+Society: police, girl, Police, crowdfunding, Can, people, solve, tax, Council, day
+Sports: game, team, players, NFL, games, player, since, season, race, League
+War: troops, Islamic, attack, forces, Syria, Iraq, Paris, Walker, two, war
+30 most frequent features:
+[(',', 63369), ('the', 62012), ('.', 58123), ('to', 33739), ('of', 29882), ('and', 28934), ('a', 28105), ('in', 23667), ("''", 18461), ("'s", 13881), ('``', 12861), ('that', 12719), ('for', 11645), ('is', 11540), ('on', 11365), ('was', 9502), ('The', 8812), ('with', 8621), ('it', 8389), ('I', 7564), (':', 6912), ('as', 6847), ('said', 6677), ('at', 6570), ('he', 6391), ('be', 6181), ('have', 6138), ('are', 5481), ('his', 5418), ('has', 5363)]
+Accuray:
+0.6710526315789473
+Precision, recall, f-score:
+                        precision    recall  f1-score   support
+
+              Business       0.58      0.71      0.64        21
+         Entertainment       0.74      0.75      0.74        52
+                 Error       0.00      0.00      0.00         5
+                Health       0.00      0.00      0.00         4
+                 Other       0.00      0.00      0.00         4
+              Politics       0.64      0.62      0.63        26
+Science and Technology       1.00      0.23      0.38        13
+               Society       0.61      0.79      0.69        72
+                Sports       0.90      0.79      0.84        24
+                   War       0.80      0.57      0.67         7
+
+           avg / total       0.66      0.67      0.65       228
+
+Business: market, its, company, sale, business, retail, industry, Dotcom, employees, prices
+Entertainment: show, film, actor, music, actress, Bieber, Justin, album, night, band
+Error: Cuomo, years, Photo, She, 'Ninja, Turtles, weirdest, Log, moments, settings
+Health: Ebola, surgery, health, study, cancer, drug, Pathways, Health, outbreak, help
+Other: Pope, what, Philadelphia, degrees, law, Kay, city, Francis, Budi, Apicius
+Politics: election, Obama, Minister, minister, President, Modi, government, party, financial, campaign
+Science and Technology: virtual, technology, cave, Facebook, scientists, reality, science, internet, climate, NASA
+Society: police, day, crowdfunding, Can, Council, pay, own, solve, people, man
+Sports: team, game, football, games, League, NFL, Games, good, players, player
+War: troops, forces, attack, Iraq, Islamic, Walker, Paris, Syria, law, British
+30 most frequent features:
+[(',', 61861), ('the', 60966), ('.', 57355), ('to', 33292), ('of', 29117), ('and', 28523), ('a', 27704), ('in', 23121), ("''", 18162), ("'s", 13634), ('``', 12506), ('that', 12432), ('for', 11502), ('is', 11457), ('on', 11036), ('was', 9417), ('The', 8703), ('with', 8574), ('it', 8115), ('I', 7523), (':', 6760), ('as', 6693), ('said', 6643), ('he', 6405), ('at', 6306), ('be', 6052), ('have', 6029), ('are', 5475), ('his', 5354), ('from', 5352)]
+Accuray:
+0.6666666666666666
+Precision, recall, f-score:
+                        precision    recall  f1-score   support
+
+              Business       0.53      0.50      0.51        18
+         Entertainment       0.76      0.77      0.76        48
+                 Error       0.00      0.00      0.00         1
+                Health       1.00      0.09      0.17        11
+                 Other       0.00      0.00      0.00         2
+              Politics       0.68      0.61      0.64        31
+Science and Technology       0.60      0.27      0.37        11
+               Society       0.56      0.81      0.66        67
+                Sports       0.96      0.81      0.88        32
+                   War       0.75      0.43      0.55         7
+
+           avg / total       0.69      0.67      0.65       228
+
+Business: its, market, business, sale, company, retail, industry, online, Amazon, Dotcom
+Entertainment: show, film, actor, actress, And, singer, Salman, music, star, band
+Error: Cuomo, She, years, Log, settings, Please, update, 'Ninja, Turtles, weirdest
+Health: Ebola, cancer, health, Pathways, drug, surgery, study, Health, Hollands, polio
+Other: Pope, Philadelphia, Francis, Kay, so, city, degrees, Budi, Gorringe, visit
+Politics: Obama, minister, new, election, Modi, President, government, state, Minister, Act
+Science and Technology: virtual, technology, cave, internet, science, reality, Facebook, scientists, NASA, climate
+Society: day, police, Police, Can, crowdfunding, pay, plan, solve, incident, when
+Sports: game, team, football, NFL, players, race, games, League, Phua, good
+War: troops, Syria, Iraq, attack, Islamic, forces, Walker, British, war, law
+
+Avg Feature Number:
+67871.7
+Avg Accuracy:
+0.6662280701754386
+Accuracy Variance:
+0.00039520707226155114
+sd: 0.019879815699888947
+
+
